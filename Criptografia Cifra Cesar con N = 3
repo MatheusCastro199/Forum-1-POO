@@ -1,0 +1,35 @@
+import java.util.Scanner;
+@SuppressWarnings("all")
+
+public class forum_POO {
+	
+	public static void main (String[] args) {
+	
+	String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+	String fraseCifrada = "";
+	
+	System.out.println("Digite a frase para ser criptografada : ");	
+	String fraseOriginal = new Scanner(System.in).nextLine();
+	fraseOriginal = fraseOriginal.toUpperCase(); 
+	
+	for(int i = 0 ; i < fraseOriginal.length() ; i++) {
+		char caractere = fraseOriginal.charAt(i);
+		int caractereNovo = alfabeto.indexOf(caractere);
+		
+		if(caractereNovo == -1) {
+			fraseCifrada += caractere;
+			continue;
+		}
+		
+		int caractereCifrado = (caractereNovo + 3);
+		
+		char newCaractereCifrado = alfabeto.charAt(caractereCifrado);
+		fraseCifrada += newCaractereCifrado;
+		
+	}
+	
+	System.out.println(fraseCifrada);
+	
+	}
+}
+	
