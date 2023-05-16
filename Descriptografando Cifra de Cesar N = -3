@@ -1,0 +1,33 @@
+import java.util.Scanner;
+@SuppressWarnings("all")
+
+public class forumParte2 {
+	public static void main(String args[]) {
+		
+		String alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
+		String fraseDescodificada = ""; 
+		
+		System.out.println("Digite o texto criptografado : ");
+		String fraseCifrada = new Scanner(System.in).nextLine();
+		
+		fraseCifrada = fraseCifrada.toUpperCase();
+		
+		for(int i = 0 ; i < fraseCifrada.length() ; i++) {
+			char caractereCifrado = fraseCifrada.charAt(i);
+			int caractereCifradoAlfabeto = alfabeto.indexOf(caractereCifrado);
+			
+			if(caractereCifradoAlfabeto == -1) {
+				fraseCifrada += caractereCifradoAlfabeto;
+				continue;
+			}
+			
+			int posCaractereOriginal = (caractereCifradoAlfabeto - 3);
+			char caractereOriginal = alfabeto.charAt(posCaractereOriginal);
+			fraseDescodificada += caractereOriginal;
+			
+			
+			
+		}
+		System.out.println(fraseDescodificada);
+	}
+}
